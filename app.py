@@ -12,13 +12,13 @@ dt_model = pickle.load(open('dt.pkl','rb'))
 rf_model = pickle.load(open('rf.pkl', 'rb'))
 knn_model = pickle.load(open('knn.pkl','rb'))
 svr_model = pickle.load(open('svr.pkl','rb'))
-xg_model = pickle.load(open('ab.pkl','rb'))
+xg_model = pickle.load(open('xg.pkl','rb'))
 ab_model = pickle.load(open('ab.pkl', 'rb')) 
 cb_model = pickle.load(open('cb.pkl','rb'))
 
 
 
-scaler = pickle.load(open('scaler.pkl', 'rb'))
+
 
 @app.route('/')
 def home():
@@ -107,7 +107,7 @@ def predict():
     lr_prediction = lr_model.predict(final_features)
     ridge_prediction = ridge_model.predict(final_features)
     svr_prediction = svr_model.predict(final_features)
-    xg_prediction = xg_model.predict(final_features)
+    xg_prediction = xg_model.predict(np.array(final_features))
     
     
 
